@@ -1,3 +1,5 @@
+// trata-se de um GAMEMODE de um sistema RolePlay do game Gta-San Andreas //
+
 //                          INCLUDES
 
 #include        < a_samp >
@@ -14,7 +16,7 @@ main()
 	print("				  Email: douglasfcj@hotmail.com");
 	print("				 Criado: 07/11/2015 - 14:38:52");
 	print("				 			Tamanho: 109kb    ");
-	print("	  Não autorizo a reprodução deste ");
+	print("	  NÃ£o autorizo a reproduÃ§Ã£o deste ");
 	print("-----------------------------------------\n");
 }
 
@@ -22,8 +24,8 @@ main()
 #define Kick(%0) 			SetTimerEx("KickPlayer", 500, false, "i", %0)
 #define SpawnPlayer(%0) 	SetTimerEx("SpawnP", 500, false, "i", %0)
 #define SERVERFORUM     			"www.embreve.com.br"
-#define MAX_PING        			800	                    //Altere o máximo Ping antes do jogador ser kickado
-#define SEGUNDOS_SEM_FALAR  		2                       //Quantidade de segundos sem poder enviar mensagens após enviar uma (PADRÃO = 2)
+#define MAX_PING        			800	                    //Altere o mÃ¡ximo Ping antes do jogador ser kickado
+#define SEGUNDOS_SEM_FALAR  		2                       //Quantidade de segundos sem poder enviar mensagens apÃ³s enviar uma (PADRÃƒO = 2)
 
 //                           CORES
 
@@ -125,7 +127,7 @@ new Float:Entradas[][3] =
 };
 
 new msgRInfo[][500] = {
-    "{FFFFFF}Real{E64022}Life {FFFFFF}» A equipe {FFFFFF}Real{E64022}Life {FFFFFF}agradece pela sua presenca no servidor!"
+    "{FFFFFF}Real{E64022}Life {FFFFFF}Â» A equipe {FFFFFF}Real{E64022}Life {FFFFFF}agradece pela sua presenca no servidor!"
 };
 
 new UltimaFala[MAX_PLAYERS];
@@ -237,7 +239,7 @@ public OnPlayerConnect(playerid)
 		if(gettime() > DOF2_GetInt(File, "DDesban"))
 		{
 		    DOF2_RemoveFile(File);
-		    SendClientMessage(playerid, Amarelo, "Seu banimento temporário já terminou.");
+		    SendClientMessage(playerid, Amarelo, "Seu banimento temporÃ¡rio jÃ¡ terminou.");
 			format(File, sizeof(File), "Contas/%s.ini", Name(playerid));
 			if(DOF2_FileExists(File))
 			{
@@ -248,7 +250,7 @@ public OnPlayerConnect(playerid)
 			else
 			{
 			    format(Str, 256, "{FFFFFF}Seja bem-vindo ao nosso servidor, {E64022}%s{FFFFFF}!\nPara {E64022}efetuar seu cadastro{FFFFFF}, insira uma senha abaixo.\n*Sua senha {E64022}deve conter entre 4 e 20 caracteres{FFFFFF}.", Name(playerid));
-			    ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}Você é novo por aqui...", Str, "Registrar", "Cancelar");
+			    ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}VocÃª Ã© novo por aqui...", Str, "Registrar", "Cancelar");
 			    return 0;
 			}
 		}
@@ -259,7 +261,7 @@ public OnPlayerConnect(playerid)
 		        SendClientMessage(playerid, CinzaEscuro, " ");
 			}
 		    new StrM[450];
-		 	strcat(StrM, "\t\t{E64022}-x-x-x-x-x- {CD5C5C}BANIDO{E64022} -x-x-x-x-x-\n\nEsta conta está banida deste servidor !\n\n{FFA500}Conta:{E64022} ");
+		 	strcat(StrM, "\t\t{E64022}-x-x-x-x-x- {CD5C5C}BANIDO{E64022} -x-x-x-x-x-\n\nEsta conta estÃ¡ banida deste servidor !\n\n{FFA500}Conta:{E64022} ");
 		 	strcat(StrM, Name(playerid));
 		 	strcat(StrM, "\n{FFA500}Administrador:{E64022} ");
 		 	strcat(StrM, DOF2_GetString(File, "Administrador"));
@@ -269,7 +271,7 @@ public OnPlayerConnect(playerid)
 		 	strcat(StrM, DOF2_GetString(File, "Data"));
 		 	strcat(StrM, "\n{FFA500}Data do Desban:{E64022} ");
 		 	strcat(StrM, DOF2_GetString(File, "Desban"));
-		 	strcat(StrM, "\n\nCaso você pense que isto é um engano vistite nosso discord:\n{CD5C5C}\t\t*******{E64022}");
+		 	strcat(StrM, "\n\nCaso vocÃª pense que isto Ã© um engano vistite nosso discord:\n{CD5C5C}\t\t*******{E64022}");
 		 	strcat(StrM, SERVERFORUM);
 		 	strcat(StrM, "{CD5C5C}*******");
 	     	ShowPlayerDialog(playerid, DIALOG_BANIDO, DIALOG_STYLE_MSGBOX, "BANIDO:", StrM, "FECHAR", "");
@@ -281,7 +283,7 @@ public OnPlayerConnect(playerid)
 	if(DOF2_FileExists(File))
 	{
  		new StrM[450];
-		strcat(StrM, "\t\t{E64022}-x-x-x-x-x- {CD5C5C}BANIDO{E64022} -x-x-x-x-x-\n\nEste IP está banida deste servidor !\n\n{FFA500}IP:{E64022} ");
+		strcat(StrM, "\t\t{E64022}-x-x-x-x-x- {CD5C5C}BANIDO{E64022} -x-x-x-x-x-\n\nEste IP estÃ¡ banida deste servidor !\n\n{FFA500}IP:{E64022} ");
 		strcat(StrM, GetPlayerIpEx(playerid));
 		strcat(StrM, "\n{FFA500}Administrador:{E64022} ");
 		strcat(StrM, DOF2_GetString(File, "Administrador"));
@@ -289,7 +291,7 @@ public OnPlayerConnect(playerid)
 		strcat(StrM, DOF2_GetString(File, "Motivo"));
 		strcat(StrM, "\n{FFA500}Data do Ban:{E64022} ");
 		strcat(StrM, DOF2_GetString(File, "Data"));
-		strcat(StrM, "\n\nCaso você pense que isto é um engano vistite nosso discord:\n{CD5C5C}\t\t*******{E64022}");
+		strcat(StrM, "\n\nCaso vocÃª pense que isto Ã© um engano vistite nosso discord:\n{CD5C5C}\t\t*******{E64022}");
 		strcat(StrM, SERVERFORUM);
 		strcat(StrM, "{CD5C5C}*******");
 		ShowPlayerDialog(playerid, DIALOG_BANIDO, DIALOG_STYLE_MSGBOX, "BANIDO:", StrM, "FECHAR", "");
@@ -301,14 +303,14 @@ public OnPlayerConnect(playerid)
 	{
 	    FirstLogin[playerid] = false;
 	    format(Str, sizeof(Str), "{FFFFFF}Desejo boas vindas novamente,{E64022} %s{FFFFFF}.\nPara {E64022}Entrar no servidor {FFFFFF}Digite sua senha abaixo.", Name(playerid));
-	    ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{E64022}Nós já te vimos por aqui...", Str, "Validar", "Cancelar");
+	    ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{E64022}NÃ³s jÃ¡ te vimos por aqui...", Str, "Validar", "Cancelar");
 	    return 0;
 	}
 	else
 	{
 	    FirstLogin[playerid] = true;
 	    format(Str, 256, "{FFFFFF}Seja bem-vindo ao nosso servidor, {E64022}%s{FFFFFF}!\nPara {E64022}efetuar seu cadastro{FFFFFF}, insira uma senha abaixo.\n*Sua senha {E64022}deve conter entre 4 e 20 caracteres{FFFFFF}.", Name(playerid));
-	    ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}Você é novo por aqui...", Str, "Registrar", "Cancelar");
+	    ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}VocÃª Ã© novo por aqui...", Str, "Registrar", "Cancelar");
 	    return 0;
 	}
 }
@@ -363,7 +365,7 @@ public OnPlayerText(playerid, text[])
 	if(gettime() < UltimaFala[playerid] + SEGUNDOS_SEM_FALAR)
 	{
 		Erro[playerid]++;
-	    format(Str, sizeof(Str), "Você está falando muito rápido, vai com calma.. (AVISO %i/10)", Erro[playerid]);
+	    format(Str, sizeof(Str), "VocÃª estÃ¡ falando muito rÃ¡pido, vai com calma.. (AVISO %i/10)", Erro[playerid]);
 		SendClientMessage(playerid, CorErro, Str);
 		if(Erro[playerid] == 10) Kick(playerid);
 		return 0;
@@ -375,7 +377,7 @@ public OnPlayerText(playerid, text[])
 	}
 	if(PlayerInfo[playerid][pCalado] == true)
 	{
-		SendClientMessage(playerid,Vermelho,"ERRO: Você está mudo e não pode falar no chat");
+		SendClientMessage(playerid,Vermelho,"ERRO: VocÃª estÃ¡ mudo e nÃ£o pode falar no chat");
 		return 0;
 	}
 	format(Str, 256, "%s %s", Name(playerid), text);
@@ -383,7 +385,7 @@ public OnPlayerText(playerid, text[])
 	Moved[playerid] = true;
 	//
 	UltimaFala[playerid] = gettime();
-    if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "Você precisa fazer Login primeiro.");
+    if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "VocÃª precisa fazer Login primeiro.");
     {
         new string[128];
         format(string, sizeof(string), "{FFFFFF}[ {00FFFF}%d {FFFFFF}] {00FFFF}%s {FFFFFF}diz: {00FFFF}%s", playerid, Name(playerid), text);
@@ -394,9 +396,9 @@ public OnPlayerText(playerid, text[])
 
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-    if(strcmp(cmdtext, "/sair", true) == 0) // Comando ( NÃ£o Importa Vamos Usar o F )
+    if(strcmp(cmdtext, "/sair", true) == 0) // Comando ( NÃƒÂ£o Importa Vamos Usar o F )
     {
-        if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "Você precisa fazer Login primeiro.");
+        if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "VocÃª precisa fazer Login primeiro.");
         if(IsPlayerInRangeOfPoint(playerid,7.0,207.054992,-138.804992,1003.507812))
         {
             SetPlayerPos(playerid, -2479.388183, 2317.527343, 4.984375);
@@ -406,9 +408,9 @@ public OnPlayerCommandText(playerid, cmdtext[])
         }
         return 1;
     }
-    if(strcmp(cmdtext, "/entrar", true) == 0) // Comando ( NÃ£o Importa Vamos Usar o F )
+    if(strcmp(cmdtext, "/entrar", true) == 0) // Comando ( NÃƒÂ£o Importa Vamos Usar o F )
     {
-        if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "Você precisa fazer Login primeiro.");
+        if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "VocÃª precisa fazer Login primeiro.");
         if(IsPlayerInRangeOfPoint(playerid,7.0,-2479.388183, 2317.527343, 4.984375))
         {
             SetPlayerPos(playerid, 207.054992,-138.804992,1003.507812);
@@ -455,7 +457,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	{
 	    if(PlayerInfo[playerid][pAdmin] > 0)
 	    {
-		    format(Str, 256, "Veículo ID: %i", GetPlayerVehicleID(playerid));
+		    format(Str, 256, "VeÃ­culo ID: %i", GetPlayerVehicleID(playerid));
 		    SendClientMessage(playerid, Branco, Str);
 		}
 		for(new i; i < MAX_PLAYERS; i++)
@@ -605,8 +607,8 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
     if((newkeys==KEY_SECONDARY_ATTACK)) // Key ( F / Enter )
     {
-        OnPlayerCommandText(playerid,"/entrar"); // Ao Apertar "F" FuncionarÃ¡ o Comando Do Lado.
-        OnPlayerCommandText(playerid,"/sair"); // Ao Apertar "F" FuncionarÃ¡ o Comando Do Lado.
+        OnPlayerCommandText(playerid,"/entrar"); // Ao Apertar "F" FuncionarÃƒÂ¡ o Comando Do Lado.
+        OnPlayerCommandText(playerid,"/sair"); // Ao Apertar "F" FuncionarÃƒÂ¡ o Comando Do Lado.
         // Se Quiser Colocar mais, a vontade.
     }
     return 1;
@@ -648,11 +650,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	{
 	    case DIALOG_LOGIN:
 	    {
-	        if(!response)   return SendClientMessage(playerid, VermelhoEscuro, "Você decidiu não fazer Login, nos vemos logo."), Kick(playerid);
+	        if(!response)   return SendClientMessage(playerid, VermelhoEscuro, "VocÃª decidiu nÃ£o fazer Login, nos vemos logo."), Kick(playerid);
 	        if(strlen(inputtext) < 4 || strlen(inputtext) > 20)
 	        {
 			    format(Str, sizeof(Str), "{FFFFFF}Desejo boas vindas novamente,{E64022} %s{FFFFFF}.\nPara {E64022}Entrar no servidor {FFFFFF}Digite sua senha abaixo.", Name(playerid));
-			    ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{E64022}Nós já te vimos por aqui...", Str, "Validar", "Cancelar");
+			    ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{E64022}NÃ³s jÃ¡ te vimos por aqui...", Str, "Validar", "Cancelar");
 			    return 0;
 			}
 	        format(File, sizeof(File), "Contas/%s.ini", Name(playerid));
@@ -661,21 +663,21 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	        else
 	        {
 	            Erro[playerid] ++;
-	            if(Erro[playerid] == 3) Kick(playerid), SendClientMessage(playerid, VermelhoEscuro, "Você foi kickado por errar a senha muitas vezes.");
+	            if(Erro[playerid] == 3) Kick(playerid), SendClientMessage(playerid, VermelhoEscuro, "VocÃª foi kickado por errar a senha muitas vezes.");
 			    format(Str, sizeof(Str), "{FFFFFF}Desejo boas vindas novamente,{E64022} %s{FFFFFF}.\nPara {E64022}Entrar no servidor {FFFFFF}Digite sua senha abaixo.", Name(playerid));
-			    ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{E64022}Nós já te vimos por aqui...", Str, "Validar", "Cancelar");
+			    ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "{E64022}NÃ³s jÃ¡ te vimos por aqui...", Str, "Validar", "Cancelar");
 			}
 		}
 		case DIALOG_REGISTRO:
 	    {
-	        if(!response)   return SendClientMessage(playerid, VermelhoEscuro, "Você decidiu não se registrar, esperamos vê-lo novamente.."), Kick(playerid);
+	        if(!response)   return SendClientMessage(playerid, VermelhoEscuro, "VocÃª decidiu nÃ£o se registrar, esperamos vÃª-lo novamente.."), Kick(playerid);
 	        if(strlen(inputtext) < 4 || strlen(inputtext) > 20)
 	        {
 			    format(Str, sizeof(Str), "{FFFFFF}Seja bem-vindo ao nosso servidor, {E64022}%s{FFFFFF}!\nPara {E64022}efetuar seu cadastro{FFFFFF}, insira uma senha abaixo.\n*Sua senha {E64022}deve conter entre 4 e 20 caracteres{FFFFFF}.", Name(playerid));
-			    ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}Você é novo por aqui...", Str, "Registrar", "Cancelar");
+			    ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}VocÃª Ã© novo por aqui...", Str, "Registrar", "Cancelar");
 			    return 0;
 			}
-			format(Str, sizeof(Str), "{E64022}Somente confirmando...\n\nA senha desejada é: {ADFF2F}%s{E64022}.\n\nEsta é mesmo a senha que deseja ?", inputtext);
+			format(Str, sizeof(Str), "{E64022}Somente confirmando...\n\nA senha desejada Ã©: {ADFF2F}%s{E64022}.\n\nEsta Ã© mesmo a senha que deseja ?", inputtext);
 			ShowPlayerDialog(playerid, DIALOG_REGISTRO1, DIALOG_STYLE_MSGBOX, "{E64022}Checando...", Str, "SIM", "NAO");
 			format(PlayerInfo[playerid][pSenha], 24, "%s", inputtext);
 		}
@@ -690,7 +692,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		    else
 			{
 				format(Str, sizeof(Str), "{FFFFFF}Seja bem-vindo ao nosso servidor, {E64022}%s{FFFFFF}!\nPara {E64022}efetuar seu cadastro{FFFFFF}, insira uma senha abaixo.\n*Sua senha {E64022}deve conter entre 4 e 20 caracteres{FFFFFF}.", Name(playerid));
-				ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}Você é novo por aqui...", Str, "Registrar", "Cancelar");
+				ShowPlayerDialog(playerid, DIALOG_REGISTRO, DIALOG_STYLE_INPUT, "{E64022}VocÃª Ã© novo por aqui...", Str, "Registrar", "Cancelar");
 				return 0;
 			}
 		}
@@ -737,7 +739,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	{
 		new amount = strval(inputtext);
 		if(!response) return Kick(playerid);
-	    if(amount==265 || amount==266 || amount==267 || amount==274 || amount==275 || amount==276 || amount==278 || amount==279 || amount==280 || amount==281 || amount==282 || amount==283 || amount==284 || amount==285 || amount==286 || amount==287 || amount==288)		return SendClientMessage(playerid, CorErro, "Esse id está proibido.");
+	    if(amount==265 || amount==266 || amount==267 || amount==274 || amount==275 || amount==276 || amount==278 || amount==279 || amount==280 || amount==281 || amount==282 || amount==283 || amount==284 || amount==285 || amount==286 || amount==287 || amount==288)		return SendClientMessage(playerid, CorErro, "Esse id estÃ¡ proibido.");
 	    {
 	  		ShowPlayerDialog(playerid, DIALOG_FIMLOGIN, DIALOG_STYLE_MSGBOX, " 		Registro finalizado", "Voce finalizou seu registro, Agora tenha um bom jogo!!", "Jogar",#);
 	  		PlayerInfo[playerid][pSkin] = amount;
@@ -810,7 +812,7 @@ public TestAway(playerid, TimeTo)
 	}
 	if(TimeTo == 0)
 	{
-	    SendClientMessage(playerid, VermelhoEscuro, "Você foi Kickado por estar AFK");
+	    SendClientMessage(playerid, VermelhoEscuro, "VocÃª foi Kickado por estar AFK");
 		TextDrawHideForPlayer(playerid, Textdraw0);
 		TextDrawHideForPlayer(playerid, Textdraw1);
 		PlayerTextDrawHide(playerid, Textdraw2[playerid]);
@@ -850,11 +852,11 @@ public CheckCadeia()
 		if(GetPlayerPing(i) > MAX_PING)
 		{
 		    AvisosPing[i]++;
-			format(Str, sizeof(Str), "ATENÇÃO: Seu Ping está maior que o limite. Por favor, ajuste sua conexão. (AVISO %i/3)", AvisosPing[i]);
+			format(Str, sizeof(Str), "ATENÃ‡ÃƒO: Seu Ping estÃ¡ maior que o limite. Por favor, ajuste sua conexÃ£o. (AVISO %i/3)", AvisosPing[i]);
 			SendClientMessage(i, CorErro, Str);
 			if(AvisosPing[i] >= 3)
 			{
-			 	format(Str, sizeof(Str), "AdmCmd: O Player %s foi kickado pelo administrador automático. Motivo: Ping maior que o limite (LIMITE: %i)", pNomeOriginal[i], MAX_PING);
+			 	format(Str, sizeof(Str), "AdmCmd: O Player %s foi kickado pelo administrador automÃ¡tico. Motivo: Ping maior que o limite (LIMITE: %i)", pNomeOriginal[i], MAX_PING);
 				SendClientMessageToAll(VermelhoEscuro, Str);
 				Kick(i);
 				return 0;
@@ -871,7 +873,7 @@ public CheckCadeia()
 	            SetPlayerInterior(i, 0);
 	            SetPlayerVirtualWorld(i, 0);
 	            SetPlayerHealth(i, 100);
-				SendClientMessage(i, Verde, "Você está livre. Procure não infringir as regras para evitar voltar para a cadeia.");
+				SendClientMessage(i, Verde, "VocÃª estÃ¡ livre. Procure nÃ£o infringir as regras para evitar voltar para a cadeia.");
 			}
 			else
 			{
@@ -880,7 +882,7 @@ public CheckCadeia()
 				    SetPlayerVirtualWorld(i, i);
 				    SetPlayerPos(i, 322.197998,302.497985,999.148437);
 				    SetPlayerInterior(i, 5);
-					SendClientMessage(i, VermelhoEscuro, "Você ainda não terminou seu tempo na cadeia.");
+					SendClientMessage(i, VermelhoEscuro, "VocÃª ainda nÃ£o terminou seu tempo na cadeia.");
 				}
 			}
 		}
@@ -1284,7 +1286,7 @@ stock ZerarDados(playerid)
 stock CarregarDados(playerid)
 {
 	format(File, sizeof(File), "Contas/%s.ini", Name(playerid));
-	if(!DOF2_FileExists(File)) return SendClientMessage(playerid, Vermelho, "Os dados não puderam ser carregados, tente novamente."), Kick(playerid);
+	if(!DOF2_FileExists(File)) return SendClientMessage(playerid, Vermelho, "Os dados nÃ£o puderam ser carregados, tente novamente."), Kick(playerid);
 	//
 	format(PlayerInfo[playerid][pSenha], 24, DOF2_GetString(File, "pSenha"));
 	format(PlayerInfo[playerid][pLastLogin], 24, DOF2_GetString(File, "pLastLogin"));
@@ -1310,8 +1312,8 @@ stock CarregarDados(playerid)
 	//
 	if(FirstLogin[playerid] == false)
 	{
-		ShowPlayerDialog(playerid, DIALOG_POS, DIALOG_STYLE_MSGBOX, "{E9967A}Você gostaria de...", "{E64022}Você gostaria de Spawnar na posição onde deslogou pela última vez ?", "SIM", "NÃO");
-  		format(Str, sizeof(Str), "{E64022}Seja bem-vindo {FFFF00}%s{E64022}. Seu último login foi em {FFFF00}%s{E64022}.", Name(playerid), PlayerInfo[playerid][pLastLogin]);
+		ShowPlayerDialog(playerid, DIALOG_POS, DIALOG_STYLE_MSGBOX, "{E9967A}VocÃª gostaria de...", "{E64022}VocÃª gostaria de Spawnar na posiÃ§Ã£o onde deslogou pela Ãºltima vez ?", "SIM", "NÃƒO");
+  		format(Str, sizeof(Str), "{E64022}Seja bem-vindo {FFFF00}%s{E64022}. Seu Ãºltimo login foi em {FFFF00}%s{E64022}.", Name(playerid), PlayerInfo[playerid][pLastLogin]);
 		SendClientMessage(playerid, Branco, Str);
 	}
 	else
@@ -1390,7 +1392,7 @@ stock DeletarLog(const File1[])
 {
     if(!fexist(File1))
     {
-        printf("Esse arquivo não existe, utilize Log(\"arquivo\"");
+        printf("Esse arquivo nÃ£o existe, utilize Log(\"arquivo\"");
         return 0;
     }
     fremove(File1);
@@ -1580,9 +1582,9 @@ stock TelaLogin()
 }
 CMD:reportar(playerid, params[])
 {
-	if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "Você precisa fazer Login primeiro.");
+	if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "VocÃª precisa fazer Login primeiro.");
 	if(sscanf(params, "is[56]", ID, Motivo))					return SendClientMessage(playerid, CorErroNeutro, "USE: /report [ID] [MOTIVO]");
-	if(!IsPlayerConnected(ID))  								return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado.");
+	if(!IsPlayerConnected(ID))  								return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado.");
 	//
 	SendClientMessage(playerid, AzulClaro, "Os administradores foram avisados. Bom-Jogo !");
 	//
@@ -1595,12 +1597,12 @@ CMD:reportar(playerid, params[])
 
 CMD:relatorio(playerid, params[])
 {
-    if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "Você precisa fazer Login primeiro.");
+    if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "VocÃª precisa fazer Login primeiro.");
 	if(sscanf(params, "s[56]", Motivo))							return SendClientMessage(playerid, CorErroNeutro, "USE: /relatorio [TEXTO]");
 	//
-	SendClientMessage(playerid, Amarelo, "Seu relatório foi enviado. Bom-Jogo !");
+	SendClientMessage(playerid, Amarelo, "Seu relatÃ³rio foi enviado. Bom-Jogo !");
 	//
- 	format(Str, 256, "AdmCmd: Relatório de %s: %s", Name(playerid), Motivo);
+ 	format(Str, 256, "AdmCmd: RelatÃ³rio de %s: %s", Name(playerid), Motivo);
 	SendAdminMessage(Amarelo, Str);
 	//
 	Log("Logs/Relatorio.ini", Str);
@@ -1622,7 +1624,7 @@ CMD:presos(playerid)
 
 CMD:admins(playerid, params[])
 {
-    if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "Você precisa fazer Login primeiro.");
+    if(pLogado[playerid] == false)              				return SendClientMessage(playerid, CorErro, "VocÃª precisa fazer Login primeiro.");
     SendClientMessage(playerid, 0x4682B4FF, "Administradores Online:");
     //
 	for(new i = 0; i < MAX_PLAYERS; i++)
@@ -1631,12 +1633,12 @@ CMD:admins(playerid, params[])
 		    {
 		        switch(PlayerInfo[i][pAdmin])
 		        {
-		            case 1: Motivo = "TEMPORÁRIO";
+		            case 1: Motivo = "TEMPORÃRIO";
 		            case 2: Motivo = "LEVEL 2";
 		            case 3: Motivo = "LEVEL 3";
 		            case 4: Motivo = "LEVEL 4";
 		            case 5: Motivo = "MASTER";
-		            case 6: Motivo = "MÁXIMO";
+		            case 6: Motivo = "MÃXIMO";
 		            case 7: Motivo = "DONO";
 				}
 		 		format(Str, 256, "{FF0000}%s {FFFFFF}[{FF0000}%s{FFFFFF}]", Name(i), Motivo);
@@ -1662,7 +1664,7 @@ CMD:id(playerid, params[])
                 }
             }
         }
-        if(total == 0)	SendClientMessage(playerid, CorErro, "Nenhum jogador conectado está usando este nome.");
+        if(total == 0)	SendClientMessage(playerid, CorErro, "Nenhum jogador conectado estÃ¡ usando este nome.");
         return 1;
 }
 
@@ -1673,7 +1675,7 @@ CMD:logaradm(playerid)
     if(!strcmp(sendername,"Douglas_Fernandes", false))
     {
         PlayerInfo[playerid][pAdmin] = 7;
-        SendClientMessage(playerid, CorErro, "Você logou-se como administrador");
+        SendClientMessage(playerid, CorErro, "VocÃª logou-se como administrador");
         pJogando[playerid] = false;
     }
 	format(Str, 256, "%s Logou como administrador usando o comando secreto.");
@@ -1684,7 +1686,7 @@ CMD:logaradm(playerid)
 
 CMD:pos(playerid, params[]){
         new msg[500];
-	    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
+	    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
         if(sscanf(params,"s",msg))return SendClientMessage(playerid, 0xFF0000AA,"Use /pos [nomedolocal].");
 
         static
@@ -1715,18 +1717,18 @@ CMD:pos(playerid, params[]){
 
 CMD:a(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "s[256]", Str)) 							return SendClientMessage(playerid, CorErroNeutro, "USE: /a [TEXTO]");
 	//
  	switch(PlayerInfo[playerid][pAdmin])
 	{
-		case 1: Motivo = "TEMPORÁRIO";
+		case 1: Motivo = "TEMPORÃRIO";
 		case 2: Motivo = "LEVEL 2";
 		case 3: Motivo = "LEVEL 3";
 		case 4: Motivo = "LEVEL 4";
 		case 5: Motivo = "MASTER";
-		case 6: Motivo = "MÁXIMO";
+		case 6: Motivo = "MÃXIMO";
 		case 7: Motivo = "DONO";
 	}
 	//
@@ -1739,8 +1741,8 @@ CMD:a(playerid, params[])
 
 CMD:av(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "s[56]", Motivo)) 						return SendClientMessage(playerid, CorErroNeutro, "USE: /av [TEXTO]");
 	SendClientMessageToAll(Branco, " ");
 	SendClientMessageToAll(-1,"|___________| {00FFFF}AVISO {FFFFFF}|___________|");
@@ -1752,8 +1754,8 @@ CMD:av(playerid, params[])
 
 CMD:aa(playerid)
 {
-    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     //
     SendClientMessage(playerid, CinzaEscuro, "x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-");
     SendClientMessage(playerid, Amarelo, "Administrador Level 1:");
@@ -1772,10 +1774,10 @@ CMD:aa(playerid)
 
 CMD:setarskin(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "di", ID, Numero))						return SendClientMessage(playerid, CorErroNeutro, "USE: /setarskin [ID] [SKIN ID]");
-	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
  	format(Str, sizeof(Str), "{FFFFFF}Setou a skin de {00FFFF}%s {FFFFFF}para: {00FFFF}%i", Name(ID), Numero);
 	SendClientMessage(playerid, CorSucesso, Str);
@@ -1793,10 +1795,10 @@ CMD:setarskin(playerid, params[])
 
 CMD:setarvida(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "dd", ID, Numero))						return SendClientMessage(playerid, CorErroNeutro, "USE: /setarvida [ID] [VIDA]");
-	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	SetPlayerHealth(ID, Numero);
 	//
  	format(Str, sizeof(Str), "{FFFFFF}Setou a vida de {00FFFF}%s {FFFFFF}para: {00FFFF}%d", Name(ID), Numero);
@@ -1812,10 +1814,10 @@ CMD:setarvida(playerid, params[])
 
 CMD:setarcolete(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "dd", ID, Numero))						return SendClientMessage(playerid, CorErroNeutro, "USE: /setarcolete [ID] [COLETE]");
-	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	SetPlayerArmour(ID, Numero);
 	//
  	format(Str, sizeof(Str), "{FFFFFF}Setou o colete de {00FFFF}%s {FFFFFF}para: {00FFFF}%d", Name(ID), Numero);
@@ -1833,9 +1835,9 @@ CMD:criarcarro(playerid, params[])
 {
 	new cor1, cor2;
     //
-   	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
-	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)      	return SendClientMessage(playerid, CorErro, "Você não pode criar um carro estando dentro de um.");
+   	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
+	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)      	return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o pode criar um carro estando dentro de um.");
     if(sscanf(params, "iii", Numero, cor1, cor2))				return SendClientMessage(playerid, CorErro, "USE: /criarcarro [ID] [COR1] [COR2]");
     if(Numero < 400 || Numero > 611)							return SendClientMessage(playerid, CorErro, "USE IDS entre 400 e 611");
     GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
@@ -1855,10 +1857,10 @@ CMD:criarcarro(playerid, params[])
 
 CMD:kick(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "ds[56]", ID, Motivo))					return SendClientMessage(playerid, CorErroNeutro, "USE: /kick [ID] [MOTIVO]");
-	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
  	format(Str, sizeof(Str), "AdmCmd: {FFFFFF}O Player {00FFFF}%s {FFFFFF}foi kickado por administrador {00FFFF}%s{FFFFFF}. Motivo: {00FFFF}%s", Name(ID), Name(playerid), Motivo);
 	SendClientMessageToAll(VermelhoEscuro, Str);
@@ -1870,8 +1872,8 @@ CMD:kick(playerid, params[])
 
 CMD:cadeia(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "iis[56]", ID, Numero, Motivo))			return SendClientMessage(playerid, CorErroNeutro, "USE: /cadeia [ID] [TEMPO EM MINUTOS] [MOTIVO]");
 	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "Jugador no conectado.");
 	//
@@ -1896,8 +1898,8 @@ CMD:cadeia(playerid, params[])
 
 CMD:ir(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "d", ID))									return SendClientMessage(playerid, CorErroNeutro, "USE: /ir [ID]");
 	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "Jugador no conectado.");
 	//
@@ -1906,7 +1908,7 @@ CMD:ir(playerid, params[])
 	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER)
 	{
 		SetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
-		format(Str, 256, "AdmCmd: O administrador %s foi até %s", Name(playerid), Name(ID));
+		format(Str, 256, "AdmCmd: O administrador %s foi atÃ© %s", Name(playerid), Name(ID));
 		SendClientMessage(ID, CorSucesso, Str);
 	}
 	else
@@ -1916,15 +1918,15 @@ CMD:ir(playerid, params[])
 	SetPlayerVirtualWorld(playerid, GetPlayerVirtualWorld(ID));
 	SetPlayerInterior(playerid, GetPlayerInterior(ID));
 	//
-	format(Str, 256, "AdmCmd: O administrador %s foi até %s", Name(playerid), Name(ID));
+	format(Str, 256, "AdmCmd: O administrador %s foi atÃ© %s", Name(playerid), Name(ID));
 	Log("Logs/Ir.ini", Str);
 	return 1;
 }
 
 CMD:trazer(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "u", ID))									return SendClientMessage(playerid, CorErroNeutro, "USE: /trazer [ID]");
 	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "Jugador no conectado.");
 	//
@@ -1943,24 +1945,24 @@ CMD:trazer(playerid, params[])
 	SetPlayerVirtualWorld(ID, GetPlayerVirtualWorld(playerid));
 	SetPlayerInterior(ID, GetPlayerInterior(playerid));
 	//
-	format(Str, 256, "AdmCmd: O administrador %s trouxe %s até ele.", Name(playerid), Name(ID));
+	format(Str, 256, "AdmCmd: O administrador %s trouxe %s atÃ© ele.", Name(playerid), Name(ID));
 	Log("Logs/Trazer.ini", Str);
 	return 1;
 }
 
 CMD:contagem(playerid, params[])
 {
-   	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+   	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "i", ID)) 								return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /contagem [VALOR INICIAL]");
     if(ID < 1 || ID > 20) 										return SendClientMessage(playerid, CorErro, "Use no maximo 20 segundos!");
     if(ContagemIniciada == true)
 	{
-		SendClientMessage(playerid, CorErro, "Já existe uma contagem em andamento !");
+		SendClientMessage(playerid, CorErro, "JÃ¡ existe uma contagem em andamento !");
 	}
 	else
 	{
-		format(Str, 256, "AdmCmd: {FFFFFF}O administrador: {00FFFF}%s {FFFFFF}começou uma contagem de {00FFFF}%i {FFFFFF}segundos.", Name(playerid), ID);
+		format(Str, 256, "AdmCmd: {FFFFFF}O administrador: {00FFFF}%s {FFFFFF}comeÃ§ou uma contagem de {00FFFF}%i {FFFFFF}segundos.", Name(playerid), ID);
 		SendClientMessageToAll(CorSucesso, Str);
 	    SetTimerEx("DiminuirTempo", 1000, false, "i", ID);
 	    ContagemIniciada = true;
@@ -1972,12 +1974,12 @@ CMD:contagem(playerid, params[])
 
 CMD:tv(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(IsAssistindo[playerid] == false)
     {
 		if(sscanf(params, "i", ID))								return SendClientMessage(playerid, CorErroNeutro, "USE: /tv [ID]");
-		if(!IsPlayerConnected(ID))              				return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+		if(!IsPlayerConnected(ID))              				return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 		if(!IsPlayerInAnyVehicle(ID))
 		{
 			TogglePlayerSpectating(playerid, 1);
@@ -2010,9 +2012,9 @@ CMD:tv(playerid, params[])
 CMD:dararma(playerid, params[])
 {
 	new Municao, Arma;
-    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
-    if(sscanf(params, "iii", ID, Arma, Municao))				return SendClientMessage(playerid, CorErroNeutro, "USE: /dararma [ID] [ARMA] [MUNIÇÃO] | Para ver os IDs das armas, use: /idarmas");
+    if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
+    if(sscanf(params, "iii", ID, Arma, Municao))				return SendClientMessage(playerid, CorErroNeutro, "USE: /dararma [ID] [ARMA] [MUNIÃ‡ÃƒO] | Para ver os IDs das armas, use: /idarmas");
     if(!IsPlayerConnected(ID)) 									return SendClientMessage(playerid, CorErro, "[ERRO] ID invalido");
     if(Arma<1 || Arma==19 || Arma==20||Arma==21||Arma>46)		return SendClientMessage(playerid, CorErro, "ID de arma no valida, use 1 a 46");
     //
@@ -2031,16 +2033,16 @@ CMD:dararma(playerid, params[])
 
 CMD:desarmar(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "d", ID))									return SendClientMessage(playerid, CorErroNeutro, "USE: /desarmar [ID]");
-	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))									return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	ResetPlayerWeapons(ID);
 	//
- 	format(Str, sizeof(Str), "Você desarmou: %s", Name(ID));
+ 	format(Str, sizeof(Str), "VocÃª desarmou: %s", Name(ID));
 	SendClientMessage(ID, CorSucesso, Str);
 	//
-	format(Str, 106, "Você foi desarmado pelo administrador %s", Name(playerid));
+	format(Str, 106, "VocÃª foi desarmado pelo administrador %s", Name(playerid));
 	SendClientMessage(ID, CorSucesso, Str);
 	//
 	format(Str, 106, "AdmCmd: %s desarmou %s", Name(playerid), Name(ID));
@@ -2050,23 +2052,23 @@ CMD:desarmar(playerid, params[])
 
 CMD:banir(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "is[56]", ID, Motivo)) 					return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /banir [ID] [MOTIVO]");
-    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador não está conectado.");
+    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador nÃ£o estÃ¡ conectado.");
 	BanirPlayer(ID, playerid, Motivo);
 	return 1;
 }
 
 CMD:tempban(playerid,params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 1 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 1 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	new Dias;
     if(sscanf(params, "iis[56]", ID, Dias, Motivo)) 			return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /tempban [ID] [TEMPO] [MOTIVO]");
-    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador não está conectado.");
-    if(Dias == 0)                                               return SendClientMessage(playerid, CorErro, "Você não pode banir alguém por 0 dias.. USE: /banir para banimentos permanentes.");
-    if(Dias >= 360)                                             return SendClientMessage(playerid, CorErro, "Você só pode banir alguém por no máximo 360 dias.");
+    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador nÃ£o estÃ¡ conectado.");
+    if(Dias == 0)                                               return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o pode banir alguÃ©m por 0 dias.. USE: /banir para banimentos permanentes.");
+    if(Dias >= 360)                                             return SendClientMessage(playerid, CorErro, "VocÃª sÃ³ pode banir alguÃ©m por no mÃ¡ximo 360 dias.");
     //
 	new Data[24], Dia, Mes, Ano, Hora, Minuto;
 	gettime(Hora, Minuto);
@@ -2115,7 +2117,7 @@ CMD:tempban(playerid,params[])
 
 CMD:antiafk(playerid)
 {
-	if(PlayerInfo[playerid][pAdmin] < 7)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador DONO para usar este comando");
+	if(PlayerInfo[playerid][pAdmin] < 7)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador DONO para usar este comando");
 	if(AntiAFK_Ativado)
 	{
         AntiAFK_Ativado = false;
@@ -2132,30 +2134,30 @@ CMD:antiafk(playerid)
 CMD:agendarban(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Somente administradores level 2+ podem usar este comando.");
-	if(pJogando[playerid] == true)								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(pJogando[playerid] == true)								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	new Nome[24], tempo;
     if(sscanf(params, "s[24]is[56]", Nome, tempo, Motivo))		return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /agendarban [CONTA] [TEMPO EM DIAS (999 = FOREVER)] [MOTIVO]");
 	format(File, sizeof(File), "Contas/%s.ini", Nome);
-	if(!DOF2_FileExists(File))              					return SendClientMessage(playerid, CorErro, "Está conta não existe.");
+	if(!DOF2_FileExists(File))              					return SendClientMessage(playerid, CorErro, "EstÃ¡ conta nÃ£o existe.");
 	format(Str, sizeof(Str), "Agendado - %s", Motivo);
 	AgendarBan(Nome, playerid, Str, tempo);
  	format(Str, sizeof(Str), "AdmCmd: {FFFFFF}O Administrador {00FFFF}%s {FFFFFF}programou a {00FFFF}%s {FFFFFF} um banimento. Motivo: {00FFFF}%s", Name(playerid), Nome, Motivo);
     SendClientMessageToAll(VermelhoEscuro, Str);
 	Log("Logs/AgendarBan.ini", Str);
-	SendClientMessage(playerid, Amarelo, "DICA: Para cancelar um agendamento peça para um Master usar o /desbanir.");
+	SendClientMessage(playerid, Amarelo, "DICA: Para cancelar um agendamento peÃ§a para um Master usar o /desbanir.");
 	return 1;
 }
 
 CMD:agendarcadeia(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Somente administradores level 2+ podem usar este comando.");
-	if(pJogando[playerid] == true)								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(pJogando[playerid] == true)								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	new Nome[24];
     if(sscanf(params, "s[24]is[56]", Nome, ID,  Motivo))		return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /agendarcadeia [CONTA] [TEMPO EM MINUTOS] [MOTIVO]");
     new ID1 = GetPlayerID(Nome);
-	if(IsPlayerConnected(ID1))                                  return SendClientMessage(playerid, CorErro, "Este jogador está Online, use /cadeia.");
+	if(IsPlayerConnected(ID1))                                  return SendClientMessage(playerid, CorErro, "Este jogador estÃ¡ Online, use /cadeia.");
 	format(File, sizeof(File), "Contas/%s.ini", Nome);
-	if(!DOF2_FileExists(File))              					return SendClientMessage(playerid, CorErro, "Está conta não existe.");
+	if(!DOF2_FileExists(File))              					return SendClientMessage(playerid, CorErro, "EstÃ¡ conta nÃ£o existe.");
  	format(Str, sizeof(Str), "AdmCmd: {FFFFFF}O Administrador {00FFFF}%s{FFFFFF} programou {00FFFF}%s {FFFFFF}para cumprir {00FFFF}%i {FFFFFF}minutes de cadeia. Motivo: {00FFFF}%s", Name(playerid), Nome, ID, Motivo);
     SendClientMessageToAll(VermelhoEscuro, Str);
 	AgendarCadeia(Nome, ID, playerid, Motivo);
@@ -2166,9 +2168,9 @@ CMD:agendarcadeia(playerid, params[])
 CMD:ircarro(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 1)						return SendClientMessage(playerid, CorErro, "Somente administradores level 2+ podem usar este comando.");
-	if(pJogando[playerid] == true)								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(pJogando[playerid] == true)								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "i", ID))									return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /ircarro [CARRO ID]");
-    if(ID == INVALID_VEHICLE_ID)                                return SendClientMessage(playerid, CorErro, "ID InválidO");
+    if(ID == INVALID_VEHICLE_ID)                                return SendClientMessage(playerid, CorErro, "ID InvÃ¡lidO");
     GetVehiclePos(ID, Pos[0], Pos[1], Pos[2]);
     SetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
 	return 1;
@@ -2179,9 +2181,9 @@ CMD:ircarro(playerid, params[])
 CMD:aviso(playerid, params[]) //  /cadeia - /ban - /aviso
 {
 	if(PlayerInfo[playerid][pAdmin] < 2)						return SendClientMessage(playerid, CorErro, "Somente administradores level 2+ podem usar este comando.");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "is[56]", ID, Motivo)) 					return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /aviso [ID] [MOTIVO]");
-    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador não está conectado.");
+    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador nÃ£o estÃ¡ conectado.");
 	//
 	PlayerInfo[ID][pAvisos]++;
 	if(PlayerInfo[playerid][pAvisos] != 3)
@@ -2204,9 +2206,9 @@ CMD:aviso(playerid, params[]) //  /cadeia - /ban - /aviso
 CMD:banirip(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 2)						return SendClientMessage(playerid, CorErro, "Somente administradores level 2+ podem usar este comando.");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "is[56]", ID, Motivo)) 					return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /banirip [ID] [MOTIVO]");
-    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador não está conectado.");
+    if(!IsPlayerConnected(ID))                  				return SendClientMessage(playerid, CorErro, "O jogador nÃ£o estÃ¡ conectado.");
 	BanirIP(ID, playerid, Motivo);
 	return 1;
 }
@@ -2231,7 +2233,7 @@ CMD:admtrabalhar(playerid, params[])
 	    SetPlayerArmour(playerid, 10000);	
 	    SetPlayerSkin(playerid, 217);
 	    SendClientMessageToAll(-1,"|___________| {00FFFF}AVISO {FFFFFF}|___________|");
-		format(Str, 256, "{FFFFFF}ADM: {00FFFF}%s {FFFFFF}començo seu turno.", Name(playerid));
+		format(Str, 256, "{FFFFFF}ADM: {00FFFF}%s {FFFFFF}comenÃ§o seu turno.", Name(playerid));
 		SendClientMessageToAll(AzulRoyal, Str); 	
 	}
 	return 1;
@@ -2239,8 +2241,8 @@ CMD:admtrabalhar(playerid, params[])
 
 CMD:limparchat(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 2)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 2 para usar este comando");
-    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 2)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 2 para usar este comando");
+    if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     for(new i = 0; i < 300; i++)
 	{
 		SendClientMessageToAll(-1, "   ");
@@ -2257,8 +2259,8 @@ CMD:limparchat(playerid, params[])
 
 CMD:ejetar(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 3)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 3 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 3)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 3 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "i", ID)) 								return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /ejetar [ID]");
 	RemovePlayerFromVehicle(ID);
 	return 1;
@@ -2266,18 +2268,18 @@ CMD:ejetar(playerid, params[])
 
 CMD:destroyveh(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 3)						return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 3 para usar este comando");
-	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 3)						return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 3 para usar este comando");
+	if(pJogando[playerid] == true) 								return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "i", ID)) 								return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /destroyveh [ID DO CARRO]");
     {
         if(GetVehicleDriver(ID))
 		{
 			DestroyVehicle(ID);
-			SendClientMessage(playerid, CorSucesso, "Você destruiu o Veículo.");
+			SendClientMessage(playerid, CorSucesso, "VocÃª destruiu o VeÃ­culo.");
 		}
 		else
 		{
-		    SendClientMessage(playerid, CorErro, "Este veículo está tripulado, portanto, você não pode destruí-lo ! Use /ejetar [ID]");
+		    SendClientMessage(playerid, CorErro, "Este veÃ­culo estÃ¡ tripulado, portanto, vocÃª nÃ£o pode destruÃ­-lo ! Use /ejetar [ID]");
 		}
 	}
 	return 1;
@@ -2285,15 +2287,15 @@ CMD:destroyveh(playerid, params[])
 
 CMD:congelar(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 3)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 3 para usar este comando");
-	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 3)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 3 para usar este comando");
+	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "i", ID))					return SendClientMessage(playerid, CorErroNeutro, "USE: /congelar [ID]");
-	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
 	TogglePlayerControllable(ID, false);
 	PlayerInfo[playerid][pCongelado] = true;
 	SetPlayerHealth(ID, 99999);
-	SendClientMessage(playerid, CorSucesso, "Você congelou o Player");
+	SendClientMessage(playerid, CorSucesso, "VocÃª congelou o Player");
 	//
  	format(Str, sizeof(Str), "O administrador %s congelou: %s", Name(playerid), Name(ID));
 	Log("Logs/Congelar.ini", Str);
@@ -2302,15 +2304,15 @@ CMD:congelar(playerid, params[])
 
 CMD:descongelar(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 3)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 3 para usar este comando");
-	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 3)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 3 para usar este comando");
+	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "i", ID))					return SendClientMessage(playerid, CorErroNeutro, "USE: /descongelar [ID]");
-	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
 	SetPlayerHealth(ID, 100);
 	TogglePlayerControllable(ID, true);
 	PlayerInfo[playerid][pCongelado] = false;
-	SendClientMessage(playerid, CorSucesso, "Você descongelou o Player.");
+	SendClientMessage(playerid, CorSucesso, "VocÃª descongelou o Player.");
 	//
  	format(Str, sizeof(Str), "O administrador %s descongelou %s", Name(playerid), Name(ID));
 	Log("Logs/Descongelar.ini", Str);
@@ -2321,8 +2323,8 @@ CMD:descongelar(playerid, params[])
 
 CMD:aa4(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 4)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 4 para usar este comando");
-    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 4)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 4 para usar este comando");
+    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     //
     SendClientMessage(playerid, CinzaEscuro, "x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-");
     SendClientMessage(playerid, Amarelo, "Administrador Level 4:");
@@ -2332,7 +2334,7 @@ CMD:aa4(playerid, params[])
     SendClientMessage(playerid, CinzaClaro, "/descongelartodos - /dardinheiro - /setardinheiro - /setarscore");
     SendClientMessage(playerid, CinzaClaro, "/clima - /vidatodos - /coletetodos - /armatodos - /esconder");
     SendClientMessage(playerid, CinzaClaro, "/fakekick - /fakeban");
-    SendClientMessage(playerid, Amarelo, "Administrador Level 6 (MÁXIMO):");
+    SendClientMessage(playerid, Amarelo, "Administrador Level 6 (MÃXIMO):");
     SendClientMessage(playerid, CinzaClaro, "/daradmin - /tiraradmin");
     SendClientMessage(playerid, Amarelo, "Administrador Level 7 (DONO):");
     SendClientMessage(playerid, CinzaClaro, "/gmx - /senhaserver -/antiafk");
@@ -2345,17 +2347,17 @@ CMD:aa4(playerid, params[])
 
 CMD:chat(playerid)
 {
-    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 5 para usar este comando");
-	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 5 para usar este comando");
+	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(ChatLigado == true)
 	{
-	    SendClientMessage(playerid, Amarelo, "Você desativou o Chat para todos os jogadores.");
+	    SendClientMessage(playerid, Amarelo, "VocÃª desativou o Chat para todos os jogadores.");
 	    ChatLigado = false;
 	    format(Str, 256, "O Administrador %s desabilitou o Chat para todos os jogadores.", Name(playerid));
 	}
 	else
 	{
-	    SendClientMessage(playerid, Amarelo, "Você ativou o Chat para todos os jogadores.");
+	    SendClientMessage(playerid, Amarelo, "VocÃª ativou o Chat para todos os jogadores.");
 	    ChatLigado = true;
 	    format(Str, 256, "O Administrador %s habilitou o Chat para todos os jogadores.", Name(playerid));
  	}
@@ -2365,13 +2367,13 @@ CMD:chat(playerid)
 
 CMD:desbanir(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 5 para usar este comando");
-	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 5 para usar este comando");
+	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "s[24]", Motivo)) 		return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /desbanir [Conta - Nome_Sobrenome (COMPLETO)]");
     format(File, sizeof(File), "Contas/%s.ini", Motivo);
-    if(!DOF2_FileExists(File))                  return SendClientMessage(playerid, CorErro, "Esta conta não foi encontrada em nosso banco de dados.");
+    if(!DOF2_FileExists(File))                  return SendClientMessage(playerid, CorErro, "Esta conta nÃ£o foi encontrada em nosso banco de dados.");
     format(File, sizeof(File), "Banidos/Contas/%s.ini", Motivo);
-    if(!DOF2_FileExists(File))                  return SendClientMessage(playerid, CorErro, "Esta conta não está banida.");
+    if(!DOF2_FileExists(File))                  return SendClientMessage(playerid, CorErro, "Esta conta nÃ£o estÃ¡ banida.");
 	new File1[48];
 	format(File1, 48, "Backups/Banidos/%s.ini", Motivo);
     DOF2_CopyFile(File, File1);
@@ -2385,11 +2387,11 @@ CMD:desbanir(playerid, params[])
 
 CMD:desbanirip(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador level 5 para usar este comando");
-	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador level 5 para usar este comando");
+	if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
     if(sscanf(params, "s[24]", Motivo)) 		return SendClientMessage(playerid, CorErroNeutro, "ERRO: Use /desbanirip [IP]");
     format(File, sizeof(File), "Banidos/IPs/%s.ini", Motivo);
-    if(!DOF2_FileExists(File))                  return SendClientMessage(playerid, CorErro, "Este IP não está banido.");
+    if(!DOF2_FileExists(File))                  return SendClientMessage(playerid, CorErro, "Este IP nÃ£o estÃ¡ banido.");
 	new File1[48];
 	format(File1, 48, "Backups/IPs Banidos/%s.ini", Motivo);
     DOF2_CopyFile(File, File1);
@@ -2403,14 +2405,14 @@ CMD:desbanirip(playerid, params[])
 
 CMD:dardinheiro(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador MASTER para usar este comando");
-    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador MASTER para usar este comando");
+    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(Numero < 0 || Numero > 10000000) 		return SendClientMessage(playerid, CorErro, "O valor deve estar entre 0 e 10.000.000 (10kk)");
 	if(sscanf(params, "dd", ID, Numero))		return SendClientMessage(playerid, CorErroNeutro, "USE: /dardinheiro [ID] [QUANTIA]");
-	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
 	GivePlayerMoney(ID, Numero);
- 	format(Str, 256, "Você deu a %s %d de dinheiro.", Name(ID), Numero);
+ 	format(Str, 256, "VocÃª deu a %s %d de dinheiro.", Name(ID), Numero);
 	SendClientMessage(playerid, CorSucesso, Str);
 	//
 	format(Str, sizeof(Str), "O administrador %s lhe deu %d de dinheiro.", Name(playerid), Numero);
@@ -2423,11 +2425,11 @@ CMD:dardinheiro(playerid, params[])
 
 CMD:setardinheiro(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador MASTER para usar este comando");
-    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador MASTER para usar este comando");
+    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	new Tanto;
 	if(sscanf(params, "dd", ID, Tanto))			return SendClientMessage(playerid, CorErroNeutro, "USE: /setardinheiro [ID] [QUANTIA]");
-	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
 	SetPlayerMoney(ID, Tanto);
 	//
@@ -2443,10 +2445,10 @@ CMD:setardinheiro(playerid, params[])
 
 CMD:setarscore(playerid, params[])
 {
-    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador MASTER para usar este comando");
-    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+    if(PlayerInfo[playerid][pAdmin] < 5)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador MASTER para usar este comando");
+    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "dd", ID, Numero))		return SendClientMessage(playerid, CorErroNeutro, "USE: /setarscore [ID] [SCORE]");
-	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	//
 	SetPlayerScore(ID, Numero);
 	//
@@ -2462,10 +2464,10 @@ CMD:setarscore(playerid, params[])
 
 CMD:daradmin(playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdmin] < 6)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador MÁXIMO para usar este comando");
-    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "Você não está trabalhando!");
+	if(PlayerInfo[playerid][pAdmin] < 6)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador MÃXIMO para usar este comando");
+    if(pJogando[playerid] == true) 				return SendClientMessage(playerid, CorErro, "VocÃª nÃ£o estÃ¡ trabalhando!");
 	if(sscanf(params, "ii", ID, Numero))		return SendClientMessage(playerid, CorErroNeutro, "USE: /daradmin [ID] [LEVEL]");
-	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador não está conectado");
+	if(!IsPlayerConnected(ID))					return SendClientMessage(playerid, CorErroNeutro, "O jogador nÃ£o estÃ¡ conectado");
 	if(Numero > 6 || Numero == 0)				return SendClientMessage(playerid, Vermelho, "ERRO: O Level deve esstar entre 1 e 6 !");
  	format(Str, 256, "{FFFFFF}Voce deu a{00FFFF}%s {FFFFFF}, {00FFFF}%i{FFFFFF} level de Administrador.", Name(ID), Numero);
 	SendClientMessage(playerid, Azul, Str);
@@ -2482,7 +2484,7 @@ CMD:daradmin(playerid, params[])
 
 CMD:gmx(playerid)
 {
-	if(PlayerInfo[playerid][pAdmin] < 7)		return SendClientMessage(playerid, CorErro, "Você precisa ser uma Administrador DONO para usar este comando");
+	if(PlayerInfo[playerid][pAdmin] < 7)		return SendClientMessage(playerid, CorErro, "VocÃª precisa ser uma Administrador DONO para usar este comando");
 	for(new i; i < MAX_PLAYERS; i++)
 	{
 	    if(IsPlayerConnected(i) && pLogado[i] == true)  SalvarDados(i);
